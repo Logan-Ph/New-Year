@@ -129,6 +129,10 @@ $(document).ready(function() {
     var futureDate  = new Date(2025, 0, 29); 
     var diff = futureDate.getTime() / 1000 - currentDate.getTime() / 1000;
 
+    if(diff <= 0) {
+		celebrate();
+	}
+
 	clock = $clock.FlipClock(diff, {
 		clockFace: 'DailyCounter',
 		countdown: true,
@@ -137,9 +141,6 @@ $(document).ready(function() {
 				var time = this.factory.getTime().time;
 				if(time <= 100000 && time > 0) {
 					pulse();
-				}
-				else if(time <= 100000 && time > 0) {
-					celebrate();
 				}
 			}
 		}
